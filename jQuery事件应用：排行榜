@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box{
+        width: 300px;
+        height: 450px;
+        margin: 50px auto;
+        border: 1px solid #000;
+      }
+      .box>h1{
+        font-size: 20px;
+        line-height: 35px;
+        color: deeppink;
+        padding-left: 10px;
+        border-bottom: 1px dashed #000;
+      }
+      ul>li{
+        list-style: none;
+        padding: 5px 10px;
+        border: 1px dashed #ccc;
+      }
+        /*从1到3个子元素span的背景色*/
+
+      ul>li:nth-child(-n+3) span{
+            background: deeppink;
+          }
+      ul>li>span{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: #ccc;
+        text-align: center;
+        line-height: 20px;
+        margin-right: 10px;
+      }
+      .content{
+        margin-top: 10px;
+        overflow:hidden;
+        display: none;
+      }
+      .content>img{
+        width: 80px;
+        height: 120px;
+        /*图片左浮*/
+        float: left;
+      }
+      .content>p{
+        width:180px;
+        height:120px;
+        /*文字右浮*/
+        float: right;
+        font-size: 12px;
+        line-height: 20px;
+      }
+        /*current原来显示隐藏的content*/
+      .current .content{
+        display: block;
+      }
+      </style>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+      $(function () {
+        //1.监听li的移入事件
+        $("li").mouseenter(function () {
+          //于当前li添加类
+            $(this).addClass("current");
+        });
+        //2.监听li的移出事件
+        $("li").mouseleave(function () {
+          //于当前li移除类
+          $(this).removeClass("current");
+        });
+      });
+        /*hover同效
+        $(function() {
+          $("li").hover(function () {
+            $(this).addClass("current");
+          }, function () {
+            $(this).removeClass("current");
+          })
+
+        });*/
+
+   </script>
+</head>
+<body>
+<div class="box">
+  <h1>排行榜</h1>
+  <ul>
+    <li><span>1</span>电影名称
+      <div class="content">
+        <img src="img/zl.jpg" alt="">
+        <p>这是一个有趣的排行榜！</p>
+      </div>
+    </li>
+    <li><span>2</span>电影名称
+      <div class="content">
+        <img src="img/zl.jpg" alt="">
+        <p>这是一个有趣的排行榜！</p>
+      </div></li>
+    <li><span>3</span>电影名称
+      <div class="content">
+        <img src="img/zl.jpg" alt="">
+        <p>这是一个有趣的排行榜！</p>
+      </div></li>
+    <li><span>4</span>电影名称
+      <div class="content">
+        <img src="img/zl.jpg" alt="">
+        <p>这是一个有趣的排行榜！</p>
+      </div></li>
+    <li><span>5</span>电影名称
+      <div class="content">
+        <img src="img/zl.jpg" alt="">
+        <p>这是一个有趣的排行榜！</p>
+      </div></li>
+    <li><span>6</span>电影名称
+      <div class="content">
+        <img src="img/zl.jpg" alt="">
+        <p>这是一个有趣的排行榜！</p>
+      </div></li>
+  </ul>
+</div>
+</body>
+</html>
