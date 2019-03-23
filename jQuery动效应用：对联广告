@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对联广告</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .left{
+      float: left;
+      position: fixed;
+      left: 0;
+      top: 200px;
+    }
+    .right{
+      float: right;
+      position: fixed;
+      right: 0;
+      top: 200px;
+    }
+  </style>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //1.监听网页的滚动
+      $(window).scroll(function () {
+        //2.获取网页的滚动偏移位
+        var offset = $("html,body").scrollTop();
+        //3.判断网页是否滚动到了指定位置
+        if(offset >= 100 ){
+          //1.3显示网页
+          $("img").show(1000);
+        }else{
+          $("img").hide(1000);
+        }
+
+      })
+
+    })
+  </script>
+</head>
+<body>
+<img src="img/left_ad.png" class="left">
+<img src="img/right_ad.png" class="right">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>
