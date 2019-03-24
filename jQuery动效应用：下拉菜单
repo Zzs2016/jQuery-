@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .nav{
+      list-style: none;
+      width: 300px;
+      height: 50px;
+      background: #b3d4fc;
+      margin: 100px auto;
+    }
+    .nav>li{
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      float: left;
+    }
+    .sub{
+      list-style: none;
+      background: greenyellow;
+      display: none;
+    }
+  </style>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //1.监听一级菜单
+      $(".nav>li").mouseenter(function () {
+        //1.1.拿到二级菜单
+        // console.log( $(this).children(".sub"));
+        var $sub_test = $(this).children(".sub");
+        //停止当前运行的动画
+        $sub_test.stop();
+        //1.2.将二级菜单展开
+        $sub_test.slideDown(1000);
+      });
+      //2.监听一级菜单移出事件
+      $(".nav>li").mouseleave(function () {
+        //1.1.拿到二级菜单
+        // console.log( $(this).children(".sub"));
+        var $other_sub = $(this).children(".sub");
+        //停止当前运行的动画
+        $other_sub.stop();
+        //1.2.将二级菜单展开
+        $other_sub.slideUp(1000);
+      });
+    })
+  </script>
+</head>
+<body>
+<ul class="nav">
+  <li>yi ji cai dan
+    <ul class="sub">
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+    </ul>
+  </li>
+  <li>yi ji cai dan
+    <ul class="sub">
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+    </ul>
+  </li>
+  <li>yi ji cai dan
+    <ul class="sub">
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+      <li>er ji cai dan</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>
