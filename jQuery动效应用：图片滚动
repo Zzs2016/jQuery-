@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无线循环滚动</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    div{
+      width: 600px;
+      height: 160px;
+      border: 1px solid #000;
+      margin: 100px auto;
+      overflow:hidden;
+    }
+    ul{
+      list-style: none;
+
+      width: 1800px;
+      height: 160px;
+      background: rgba(255,0,0,0.5);
+    }
+    ul>li{
+      float: left;
+    }
+  </style>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      //1.定义变量保存偏移位
+      var offset = 0;
+      //2.setInterval滚动图片
+
+      var timer = setInterval(function () {
+        offset += -10;
+        if(offset <= -1200){
+          offset=0;
+        };
+        $("ul").css("marginLeft",offset);
+      },50);
+    })
+  </script>
+</head>
+<body>
+<div>
+  <ul>
+    <li><img src="img/a.jpg"></li>
+    <li><img src="img/B.jpg"></li>
+    <li><img src="img/C.jpg"></li>
+    <li><img src="img/D.jpg"></li>
+    <li><img src="img/a.jpg"></li>
+    <li><img src="img/B.jpg"></li>
+  </ul>
+</div>
+</body>
+</html>
