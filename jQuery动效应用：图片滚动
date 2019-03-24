@@ -14,6 +14,7 @@
       border: 1px solid #000;
       margin: 100px auto;
       overflow:hidden;
+      background: #000;
     }
     ul{
       list-style: none;
@@ -31,16 +32,35 @@
     $(function () {
       //1.定义变量保存偏移位
       var offset = 0;
-      //2.setInterval滚动图片
-
-      var timer = setInterval(function () {
+      //2.定义滚动函数，setInterval滚动图片
+      var timer;
+      function autoPlay(){
+        timer = setInterval(function () {
         offset += -10;
         if(offset <= -1200){
           offset=0;
         };
         $("ul").css("marginLeft",offset);
       },50);
-    })
+      };
+      autoPlay();
+      //3.监听移入移出事件
+      $("li").hover(function () {
+        //3.1移入时clearInterval停止滚动
+        clearInterval(timer);
+        //3.2给当前li添加蒙版
+        $(this).siblings().fadeTo(100,0.5);
+        $(this).fadeTo(100,1);
+      },function () {
+        //3.3移出时取消蒙版
+        $("li").fadeTo(100,1);
+        //3.4移出时调用播放函数
+        autoPlay();
+
+      })
+
+
+    });
   </script>
 </head>
 <body>
